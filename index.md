@@ -1,5 +1,4 @@
 ---
-layout: home
-search_exclude: true
+layout: default
+title: Scholar Search
 ---
-

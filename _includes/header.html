@@ -3,17 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
-    <title>{{ page.title }}</title>
+    <title>{{ page.title | default: site.title }}</title>
 </head>
 <body>
-    {% include header.html %}
-
-    {% include navigation.html %}
-
-    <div id="main-content">
-        {{ content }}
-    </div>
-
-    {% include footer.html %}
-</body>
-</html>
+    <header>
+        <h1>{{ site.title }}</h1>
+    </header>
