@@ -3,54 +3,17 @@ layout: default
 title: Scholar Search
 ---
 
-<body>
-<header>
-        <h1><b>Welcome _____!</b></h1>
-</header>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScholarSearch</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color:light blue;
-        }
-         header {
-            background-color: #daeaf6;
-            color: black;
-            padding: 10px;
-            text-align: center;
-        }
-        h1 {
-            margin: 0;
-        }
-        section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color:white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        section ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding: 0;
-        }
-        section li {
-            margin-bottom: 10px;
-        }
-    </style>
-
-
-  <section id="deadlines">
+    <link rel="stylesheet" href="assets/common/css/style.css">
+</head>
+<body>
+<header>
+        <h1 style="margin: 0;"><b>Welcome _____!</b></h1>
+</header>
+    <section id="deadlines">
         <h2><b>Upcoming Deadlines:</b></h2>
         <ul>
             <li>X school - Jan 1</li>
@@ -67,5 +30,5 @@ title: Scholar Search
             <li>Podcast: Yale Admissions Officers Discussion</li>
         </ul>
     </section>
-  
-<html> 
+</body>
+<html>
