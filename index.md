@@ -4,10 +4,9 @@ title: Scholar Search
 ---
 
 <body>
-
 <header>
         <h1><b>Welcome _____!</b></h1>
-    </header>
+</header>
 
 <html lang="en">
 <head>
@@ -39,15 +38,7 @@ title: Scholar Search
             border-radius: 10px;
             overflow: hidden;
         }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+
         section ul {
             list-style-type: disc;
             margin-left: 20px;
