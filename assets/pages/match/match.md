@@ -5,9 +5,42 @@ title: Find Match
 
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ScholarSearch Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/common/css/style.css">
+    <style>
+        /* Custom CSS for quiz page */
+        #question-container,
+        #button-container,
+        #recommendation-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+      
+        /* Additional custom styles if needed */
+        #prevButton,
+        #nextButton,
+        #submitButton {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        #prevButton:hover,
+        #nextButton:hover,
+        #submitButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <title>ScholarSearch Quiz</title>
 </head>
 <body>
 <div id="question-container">

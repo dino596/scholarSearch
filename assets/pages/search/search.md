@@ -2,3 +2,92 @@
 layout: page
 title: Search
 ---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/common/css/style.css">
+    <style>
+        /* Custom CSS for search page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #daeaf6;
+            padding: 20px;
+        }
+        /* Search container */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        /* Search form */
+        #searchForm {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #searchInput {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #searchButton {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        #searchButton:hover {
+            background-color: #0056b3;
+        }
+        /* Search results */
+        #searchResults {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+        .searchResult {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .searchResult:last-child {
+            border-bottom: none;
+        }
+        .searchResult h3 {
+            margin: 0;
+            color: #007bff;
+        }
+        .searchResult p {
+            margin-top: 5px;
+            color: #666;
+        }
+    </style>
+    <title>College Search</title>
+</head>
+<body>
+    <div class="container">
+        <h1>College Search</h1>
+        <form id="searchForm">
+            <label for="searchInput">Search by College Name: </label>
+            <input type="text" id="searchInput" name="searchInput" placeholder="Enter college name">
+            <button id="searchButton" type="submit">Search</button>
+        </form>
+        <div id="searchResults">
+            <!-- Search results will be displayed here -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
