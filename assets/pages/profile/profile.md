@@ -3,6 +3,7 @@ layout: page
 title: Profile
 ---
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -68,9 +69,9 @@ title: Profile
         </div>
         <div class="profile-form">
             <h2>Update Username and Password</h2>
-            <form>
-                <input type="text" placeholder="New Username">
-                <input type="password" placeholder="New Password">
+            <form id="update-form">
+                <input type="text" id="new-username" placeholder="New Username">
+                <input type="password" id="new-password" placeholder="New Password">
                 <input type="submit" value="Update">
             </form>
         </div>
@@ -90,5 +91,20 @@ title: Profile
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('update-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            // Get new username and password values
+            var newUsername = document.getElementById('new-username').value;
+            var newPassword = document.getElementById('new-password').value;
+            // Update profile information
+            document.getElementById('full-name').textContent = newUsername;
+            // You can add more logic to update other profile information as well
+            // For now, let's assume only the username is updated
+            // Reset form fields
+            document.getElementById('new-username').value = '';
+            document.getElementById('new-password').value = '';
+        });
+    </script>
 </body>
 </html>
