@@ -4,14 +4,12 @@ title: My List
 ---
 
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScholarSearch</title>
+    <title>My List</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <div class="trifold">
         <div class="column">
@@ -39,10 +37,23 @@ title: My List
             </ul>
         </div>
     </div>
+    <h2>Colleges You Are Considering</h2>
+    <ul id="userList"></ul>
     <footer>
         <!-- Footer content goes here -->
     </footer>
-
+    <script>
+        // JavaScript code goes here
+        var userList = [];
+        function updateList() {
+            var listElement = document.getElementById("userList");
+            listElement.innerHTML = "";
+            userList.forEach(function(college) {
+                var listItem = document.createElement("li");
+                listItem.textContent = college;
+                listElement.appendChild(listItem);
+            });
+        }
+    </script>
 </body>
-
 </html>
