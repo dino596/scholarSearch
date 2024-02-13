@@ -24,7 +24,7 @@ h1 {
     padding: 0;
 }
 .column li {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 .column {
     background-color: white;
@@ -35,3 +35,4 @@ h1 {
     width: 500px;
     margin: 50 auto;
 }
+

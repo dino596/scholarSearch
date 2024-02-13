@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +8,9 @@
     <style>
         .selected {
             background-color: yellow;
+        }
+        .delete-button {
+            margin-left: 10px; /* Adjust as needed */
         }
     </style>
 </head>
@@ -28,6 +32,7 @@
     <footer>
         <!-- Footer content goes here -->
     </footer>
+
     <div class="column">
         <h2><b>Searched schools</b></h2>
         <ul id="searched" class="category">
@@ -44,8 +49,10 @@
             <button onclick="moveTo('Reach')">Move to Reach</button>
         </div>
     </div>
+
     <script>
         var selectedSchools = [];
+
         function toggleSelect(element) {
             if (selectedSchools.includes(element)) {
                 selectedSchools = selectedSchools.filter(item => item !== element);
@@ -55,6 +62,7 @@
                 element.classList.add('selected');
             }
         }
+
         function moveTo(category) {
             if (selectedSchools.length === 0) {
                 alert('Please select at least one school first.');
@@ -74,6 +82,7 @@
                 // Add delete button
                 var deleteButton = document.createElement('button');
                 deleteButton.textContent = 'Delete';
+                deleteButton.classList.add('delete-button'); // Apply the delete button class
                 deleteButton.onclick = function() {
                     school.remove();
                     document.getElementById('searched').appendChild(school);
