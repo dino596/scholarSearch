@@ -1,8 +1,3 @@
----
-layout: page
-title: My List
----
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,18 +37,6 @@ title: My List
     <footer>
         <!-- Footer content goes here -->
     </footer>
-    <script>
-        // JavaScript code goes here
-        var userList = [];
-        function updateList() {
-            var listElement = document.getElementById("userList");
-            listElement.innerHTML = "";
-            userList.forEach(function(college) {
-                var listItem = document.createElement("li");
-                listItem.textContent = college;
-                listElement.appendChild(listItem);
-            });
-        }
-    </script>
+
 </body>
 </html>
