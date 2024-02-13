@@ -13,26 +13,30 @@ title: List
         .selected {
             background-color: yellow;
         }
+        .delete-button {
+            margin-left: 10px; /* Adjust as needed */
+        }
     </style>
 </head>
 <body>
     <div class="trifold">
         <div class="column">
             <h2><b>Safety Schools</b></h2>
-            <ul id="safety"></ul>
+            <ul id="safety" class="category"></ul>
         </div>
         <div class="column">
             <h2><b>Match Schools</b></h2>
-            <ul id="match"></ul>
+            <ul id="match" class="category"></ul>
         </div>
         <div class="column">
             <h2><b>Reach Schools</b></h2>
-            <ul id="reach"></ul>
+            <ul id="reach" class="category"></ul>
         </div>
     </div>
     <footer>
         <!-- Footer content goes here -->
     </footer>
+
     <div class="column">
         <h2><b>Selected colleges</b></h2>
         <ul id="selected">
@@ -61,6 +65,7 @@ title: List
             <button onclick="deleteSelected()">Delete</button>
         </div>
     </div>
+
     <script>
         var selectedSchools = []; // Array to store selected schools
         // Function to move schools between categories
