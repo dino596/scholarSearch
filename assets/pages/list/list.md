@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,7 +28,6 @@
     <footer>
         <!-- Footer content goes here -->
     </footer>
-
     <div class="column">
         <h2><b>Searched schools</b></h2>
         <ul id="searched">
@@ -46,10 +44,8 @@
             <button onclick="moveTo('Reach')">Move to Reach</button>
         </div>
     </div>
-
     <script>
         var selectedSchools = [];
-
         function toggleSelect(element) {
             if (selectedSchools.includes(element)) {
                 selectedSchools = selectedSchools.filter(item => item !== element);
@@ -59,7 +55,6 @@
                 element.classList.add('selected');
             }
         }
-
         function moveTo(category) {
             if (selectedSchools.length === 0) {
                 alert('Please select at least one school first.');
