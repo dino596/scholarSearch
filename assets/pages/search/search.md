@@ -89,6 +89,8 @@ title: Search
         </div>
     </div>
     <script>
+           // JavaScript code for adding schools to list page
+        document.addEventListener("DOMContentLoaded", function() {
         var colleges = [
             {
                 name: "Stanford University",
@@ -212,11 +214,27 @@ title: Search
             },
             // Add more colleges here
         ];
-        document.addEventListener("DOMContentLoaded", function() {
+// Function to add school to list
+    function addToList(college) {
+        var storedList = JSON.parse(localStorage.getItem('selectedSchools')) || [];
+        storedList.push(college);
+        localStorage.setItem('selectedSchools', JSON.stringify(storedList));
+        // After adding to the list, update the displayed list as well
+        updateSelectedColleges();
+    }
+    // Function to update the displayed list of selected colleges
+    function updateSelectedColleges() {
+        var selectedCollegesList = document.getElementById("selected");
+        selectedCollegesList.innerHTML = ""; // Clear previous list
+        var storedList = JSON.parse(localStorage.getItem('selectedSchools')) || [];
+        storedList.forEach(function(college) {
+            var listItem = document.createElement("li");
+            listItem.textContent = college;
+            selectedCollegesList.appendChild(listItem);
+        });
+    }
+    // Event listener for search form submission
     var searchForm = document.getElementById("searchForm");
-    var searchInput = document.getElementById("searchInput");
-    var searchResults = document.getElementById("searchResults");
-    var userList = [];
     searchForm.addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent the form from submitting
         var searchTerm = searchInput.value.toLowerCase();
@@ -225,7 +243,9 @@ title: Search
         });
         displaySearchResults(filteredColleges);
     });
+    // Function to display search results
     function displaySearchResults(results) {
+        var searchResults = document.getElementById("searchResults");
         searchResults.innerHTML = ""; // Clear previous search results
         if (results.length === 0) {
             searchResults.innerHTML = "<p>No results found</p>";
@@ -255,25 +275,15 @@ title: Search
             addToListLink.textContent = "Add to List";
             addToListLink.href = "#";
             addToListLink.addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent the link from navigating
-    userList.push(college.name);
-    updateList();
-});
+                event.preventDefault(); // Prevent the link from navigating
+                addToList(college.name);
+            });
             resultElement.appendChild(addToListLink);
             searchResults.appendChild(resultElement);
         });
     }
-    function updateList() {
-        var listElement = document.getElementById("userList");
-        listElement.innerHTML = "";
-        userList.forEach(function(college) {
-            var listItem = document.createElement("li");
-            var bullet = document.createTextNode('\u2022 '); // Bullet character
-            listItem.appendChild(bullet);
-            listItem.appendChild(document.createTextNode(college));
-            listElement.appendChild(listItem);
-        });
-    }
+    // On page load, update the displayed list of selected colleges
+    updateSelectedColleges();
 });
     </script>
 </body>
