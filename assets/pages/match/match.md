@@ -85,7 +85,7 @@ const quizData = [
   },
   {
     question: "Desired Student to Staff Ratio",
-    options: ["Low", "Medium", "High"]
+    options: ["less students to teachers", "even ratio", "more students to teachers"]
   }
 ];
 
@@ -108,7 +108,7 @@ function showQuestion() {
   currentQuizData.options.forEach((option, index) => {
     const optionElement = document.createElement("div");
     optionElement.innerHTML = `
-      <input type="checkbox" id="option${index}" name="option${index}" value="${option}">
+      <input type="radio" id="option${index}" name="question${currentQuestion}" value="${option}">
       <label for="option${index}">${option}</label>
     `;
     optionsElement.appendChild(optionElement);
@@ -128,17 +128,42 @@ function nextQuestion() {
 }
 
 function submitAnswers() {
+  recommendationList.innerHTML = "";
   answers = [];
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  checkboxes.forEach((checkbox) => {
-    if (checkbox.checked) {
-      answers.push(checkbox.value);
-    }
+  const radioButtons = document.querySelectorAll('input[type="radio"]:checked');
+  radioButtons.forEach((radioButton) => {
+    answers.push(radioButton.value);
   });
 
-  // Mock recommendation
-  recommendationList.innerHTML = "<li>College A</li><li>College B</li><li>College C</li>";
+  // Generate college recommendations based on user answers
+  const recommendedColleges = [];
 
+  // logic for selecting colleges based on user preferences
+  if (answers.includes("City") && answers.includes("Public")) {
+    recommendedColleges.push("UCLA");
+    recommendedColleges.push("UCSD");
+  }
+  if (answers.includes("Snowy") && answers.includes("Private")) {
+    recommendedColleges.push("Harvard University");
+    recommendedColleges.push("Princeton University");
+  }
+  if (answers.includes("less students to teachers") && answers.includes("Private")) {
+    recommendedColleges.push("Harvard University");
+    recommendedColleges.push("Princeton University");
+  }
+  if (answers.includes("Sunny") && answers.includes("Private")) {
+    recommendedColleges.push("Stanford University");
+    recommendedColleges.push("Chapman University");
+  }
+
+  // Display recommended colleges
+  recommendedColleges.forEach((college) => {
+    const collegeElement = document.createElement("li");
+    collegeElement.textContent = college;
+    recommendationList.appendChild(collegeElement);
+  });
+
+  // Show recommendation container
   recommendationContainer.style.display = "block";
 }
 
