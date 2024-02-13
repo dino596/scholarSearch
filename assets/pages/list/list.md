@@ -15,15 +15,15 @@
     <div class="trifold">
         <div class="column">
             <h2><b>Safety Schools</b></h2>
-            <ul id="safety"></ul>
+            <ul id="safety" class="category"></ul>
         </div>
         <div class="column">
             <h2><b>Match Schools</b></h2>
-            <ul id="match"></ul>
+            <ul id="match" class="category"></ul>
         </div>
         <div class="column">
             <h2><b>Reach Schools</b></h2>
-            <ul id="reach"></ul>
+            <ul id="reach" class="category"></ul>
         </div>
     </div>
     <footer>
@@ -32,7 +32,7 @@
 
     <div class="column">
         <h2><b>Searched schools</b></h2>
-        <ul id="searched">
+        <ul id="searched" class="category">
             <li onclick="toggleSelect(this)">University of Michigan</li>
             <li onclick="toggleSelect(this)">University of Texas at Austin</li>
             <li onclick="toggleSelect(this)">Cornell University</li>
@@ -76,6 +76,15 @@
             selectedSchools.forEach(function (school) {
                 destinationList.appendChild(school);
                 school.classList.remove('selected');
+                // Add delete button
+                var deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = function() {
+                    school.remove();
+                    document.getElementById('searched').appendChild(school);
+                    deleteButton.remove(); // Remove the delete button
+                };
+                school.appendChild(deleteButton);
             });
             selectedSchools = [];
         }
