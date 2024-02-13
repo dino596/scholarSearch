@@ -1,12 +1,10 @@
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScholarSearch</title>
+    <title>My List</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <div class="trifold">
         <div class="column">
@@ -34,55 +32,11 @@
             </ul>
         </div>
     </div>
+    <h2>Colleges You Are Considering</h2>
+    <ul id="userList"></ul>
     <footer>
         <!-- Footer content goes here -->
     </footer>
 
-  <div class="column">
-        <h2><b>Searched schools</b></h2>
-        <ul id="searched">
-            <li onclick="selectSchool(this)">University of Michigan</li>
-            <li onclick="selectSchool(this)">University of Texas at Austin</li>
-            <li onclick="selectSchool(this)">Cornell University</li>
-            <li onclick="selectSchool(this)">University of Washington</li>
-            <li onclick="selectSchool(this)">University of Florida</li>
-            <li onclick="selectSchool(this)">University of Chicago</li>
-        </ul>
-        <div class="buttons">
-            <button onclick="moveTo('Safety')">Move to Safety</button>
-            <button onclick="moveTo('Match')">Move to Match</button>
-            <button onclick="moveTo('Reach')">Move to Reach</button>
-        </div>
-    </div>
-
-    <script>
-       var selectedSchool;
-        function selectSchool(element) {
-            if (selectedSchool) {
-                selectedSchool.classList.remove('selected');
-            }
-            selectedSchool = element;
-            selectedSchool.classList.add('selected');
-        }
-        function moveTo(category) {
-            if (!selectedSchool) {
-                alert('Please select a school first.');
-                return;
-            }
-            var destinationList;
-            if (category === 'Safety') {
-                destinationList = document.getElementById('safety');
-            } else if (category === 'Match') {
-                destinationList = document.getElementById('match');
-            } else if (category === 'Reach') {
-                destinationList = document.getElementById('reach');
-            }
-            destinationList.appendChild(selectedSchool);
-            selectedSchool.classList.remove('selected');
-            selectedSchool = null;
-        }
-    </script>
-
 </body>
-
 </html>
