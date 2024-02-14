@@ -83,80 +83,71 @@ title: Search
         </div>
     </div>
     <script>
-           // JavaScript code for adding schools to list page
         document.addEventListener("DOMContentLoaded", function() {
-        const requestOptions = {
-            method: "GET",
-            redirect: "follow"
-        };
-        fetch("http://127.0.0.1:8199/dataList", requestOptions)
-            .then((response) => response.text())
-            .then((result) => console.log(result))
-            .then((result) => {
-                colleges=result
-                updateSelectedColleges()
-            })
-            .catch((error) => console.error(error))
-    // Function to add school to list
-    function addToList(college) {
-        var storedList = JSON.parse(localStorage.getItem('selectedSchools')) || [];
-        storedList.push(college);
-        localStorage.setItem('selectedSchools', JSON.stringify(storedList));
-        // After adding to the list, update the displayed list as well
-        updateSelectedColleges();
-    }
-    // Function to update the displayed list of selected colleges
-    function updateSelectedColleges() {
-        var selectedCollegesList = document.getElementById("selected");
-        if (!selectedCollegesList) return; // Check if the element exists
-        selectedCollegesList.innerHTML = ""; // Clear previous list
-        var storedList = JSON.parse(localStorage.getItem('selectedSchools')) || [];
-        storedList.forEach(function(college) {
-            var listItem = document.createElement("li");
-            listItem.textContent = college;
-            selectedCollegesList.appendChild(listItem);
+            const requestOptions = {
+                method: "GET",
+                redirect: "follow"
+            };
+            fetch("http://127.0.0.1:8199/dataList", requestOptions)
+                .then((response) => response.json()) // Parse the response as JSON
+                .then((result) => {
+                    colleges = result; // Assuming result is an array of colleges
+                    updateSelectedColleges();
+                })
+                .catch((error) => console.error(error));
+            function addToList(college) {
+                var storedList = JSON.parse(localStorage.getItem('selectedSchools')) || [];
+                storedList.push(college);
+                localStorage.setItem('selectedSchools', JSON.stringify(storedList));
+                updateSelectedColleges();
+            }
+            function updateSelectedColleges() {
+                var selectedCollegesList = document.getElementById("selected");
+                if (!selectedCollegesList) return; // Check if the element exists
+                selectedCollegesList.innerHTML = ""; // Clear previous list
+                var storedList = JSON.parse(localStorage.getItem('selectedSchools')) || [];
+                storedList.forEach(function(college) {
+                    var listItem = document.createElement("li");
+                    listItem.textContent = college;
+                    selectedCollegesList.appendChild(listItem);
+                });
+            }
+            var searchForm = document.getElementById("searchForm");
+            searchForm.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent the form from submitting
+                var searchTerm = document.getElementById("searchInput").value.toLowerCase();
+                var filteredColleges = colleges.filter(function(college) {
+                    return college.name.toLowerCase().includes(searchTerm);
+                });
+                displaySearchResults(filteredColleges);
+            });
+            function displaySearchResults(results) {
+                var searchResults = document.getElementById("searchResults");
+                searchResults.innerHTML = ""; // Clear previous search results
+                if (results.length === 0) {
+                    searchResults.innerHTML = "<p>No results found</p>";
+                    return;
+                }
+                results.forEach(function(college) {
+                    var resultElement = document.createElement("div");
+                    resultElement.classList.add("searchResult");
+                    var heading = document.createElement("h3");
+                    heading.textContent = college.name;
+                    resultElement.appendChild(heading);
+                    var location = document.createElement("p");
+                    location.textContent = "Location: " + college.city + ", " + college.state;
+                    resultElement.appendChild(location);
+                    // Add button to add to list
+                    var addButton = document.createElement("button");
+                    addButton.textContent = "Add to List";
+                    addButton.onclick = function() {
+                        addToList(college.name); // Passing college name to addToList function
+                    };
+                    resultElement.appendChild(addButton);
+                    searchResults.appendChild(resultElement);
+                });
+            }
         });
-        // Ensure that the searchResults element is present
-        var searchResults = document.getElementById("searchResults");
-        if (!searchResults) return; // Check if the element exists
-        // Optional: Display a message if there are no search results
-        if (searchResults.innerHTML === "" && storedList.length === 0) {
-            searchResults.innerHTML = "<p>No search results</p>";
-        }
-    }
-    // Event listener for search form submission
-    var searchForm = document.getElementById("searchForm");
-    searchForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent the form from submitting
-        var searchTerm = searchInput.value.toLowerCase();
-        var filteredColleges = colleges.filter(function(college) {
-            return college.name.toLowerCase().includes(searchTerm);
-        });
-        displaySearchResults(filteredColleges);
-    });
-        // Function to display search results
-    // Function to display search results
-    function displaySearchResults(results) {
-        var searchResults = document.getElementById("searchResults");
-        searchResults.innerHTML = ""; // Clear previous search results
-        if (results.length === 0) {
-            searchResults.innerHTML = "<p>No results found</p>";
-            return;
-        }
-        results.forEach(function(college) {
-            var resultElement = document.createElement("div");
-            resultElement.classList.add("searchResult");
-            var heading = document.createElement("h3");
-            heading.textContent = college.name;
-            resultElement.appendChild(heading);
-            var location = document.createElement("p");
-            location.textContent = "Location: " + college.city + ", " + college.state;
-            resultElement.appendChild(location);
-            // Other elements creation
-            searchResults.appendChild(resultElement);
-        });
-        }
-    })
     </script>
 </body>
 </html>
