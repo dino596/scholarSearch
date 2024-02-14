@@ -38,7 +38,7 @@ title: List
     </footer>
 
     <div class="column">
-        <h2><b>Selected colleges</b></h2>
+        <h2><b>Searched Colleges</b></h2>
         <ul id="selected">
             <!-- Selected colleges will be displayed here -->
             <script>
