@@ -41,7 +41,7 @@ title: Scholar Search
             const articlesList = document.getElementById("articlesList");
             result.forEach(article => {
                 const li = document.createElement("li");
-                li.innerHTML = `<b>${article.title}</b> by ${article.author} - <a href="${article.link}">Read more</a>`;
+                li.innerHTML = `<b>${article.title}</b> by ${article.author} - <a href="${article.link}">Read More</a>`;
                 articlesList.appendChild(li);
             });
         })
