@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Profile
 ---
 
@@ -9,12 +9,6 @@ title: Profile
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #daeaf6;
-        }
         .profile-container {
             max-width: 600px;
             margin: 20px auto;
@@ -64,46 +58,26 @@ title: Profile
 <body>
     <div class="profile-container">
         <div class="profile-picture">
-            <img src="profile_placeholder.png" alt="Profile Picture">
+            <!--img src="profile_placeholder.png" alt="Profile Picture"-->
         </div>
         <div class="profile-form">
-            <h2>Update Username and Password</h2>
-            <form id="update-form">
-                <input type="text" id="new-username" placeholder="New Username">
-                <input type="password" id="new-password" placeholder="New Password">
-                <input type="submit" value="Update">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <input type="submit" value="Login">
             </form>
         </div>
-        <div class="profile-info">
-            <h2>Profile Information</h2>
-            <div>
-                <label for="graduation-year">Graduation Year from High School:</label>
-                <span id="graduation-year">2024</span>
-            </div>
-            <div>
-                <label for="birthday">Birthday:</label>
-                <span id="birthday">September 8, 2005</span>
-            </div>
-            <div>
-                <label for="full-name">Name:</label>
-                <span id="full-name">John Doe</span>
-            </div>
+        <div class="profile-form">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="text" id="sign-username" placeholder="Username">
+                <input type="password" id="sign-password" placeholder="Password">
+                <input type="password" id="confirm-password" placeholder="Confirm Password">
+                <input type="submit" value="Sign Up">
+            </form>
         </div>
     </div>
-    <script>
-        document.getElementById('update-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-            // Get new username and password values
-            var newUsername = document.getElementById('new-username').value;
-            var newPassword = document.getElementById('new-password').value;
-            // Update profile information
-            document.getElementById('full-name').textContent = newUsername;
-            // You can add more logic to update other profile information as well
-            // For now, let's assume only the username is updated
-            // Reset form fields
-            document.getElementById('new-username').value = '';
-            document.getElementById('new-password').value = '';
-        });
-    </script>
+<script src="{{ site.baseurl }}/assets/common/js/script.js"></script>
 </body>
 </html>

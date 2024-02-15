@@ -11,7 +11,7 @@ title: Scholar Search
 </head>
 <body>
 <header>
-        <h1 style="margin: 0;"><b>Welcome _____!</b></h1>
+        <h1 id="welcome" style="margin: 0;"><b>Welcome!</b></h1>
 </header>
     <section id="deadlines">
         <h2><b>Upcoming Deadlines:</b></h2>
@@ -30,5 +30,9 @@ title: Scholar Search
             <li>Podcast: Yale Admissions Officers Discussion</li>
         </ul>
     </section>
+<script src="{{ site.baseurl }}/assets/common/js/script.js"></script>
+<script>
+    
+</script>
 </body>
 <html>
