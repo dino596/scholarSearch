@@ -36,9 +36,8 @@ title: List
     <footer>
         <!-- Footer content goes here -->
     </footer>
-
     <div class="column">
-        <h2><b>Selected colleges</b></h2>
+        <h2><b>Searched Colleges</b></h2>
         <ul id="selected">
             <!-- Selected colleges will be displayed here -->
             <script>
@@ -65,7 +64,6 @@ title: List
             <button onclick="deleteSelected()">Delete</button>
         </div>
     </div>
-
     <script>
         var selectedSchools = []; // Array to store selected schools
         // Function to move schools between categories
