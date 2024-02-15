@@ -11,11 +11,7 @@ title: Scholar Search
 </head>
 <body>
 <header>
-<<<<<<< HEAD
         <h1 id="welcome" style="margin: 0;"><b>Welcome!</b></h1>
-=======
-    <h1 style="margin: 0;"><b>Welcome _____!</b></h1>
->>>>>>> f6485c9c1896ba83e937217831fbb68404345c1e
 </header>
 <section id="deadlines">
     <h2><b>Upcoming Deadlines:</b></h2>
@@ -26,19 +22,6 @@ title: Scholar Search
     </ul>
 </section>
 
-<<<<<<< HEAD
-   <section id="recommended">
-        <h2><b>Recommended For You:</b></h2>
-         <ul>
-            <li>Breaking News: Harvard President Resigns</li>
-            <li>Article: The Secret Behind College Admissions</li>
-            <li>Podcast: Yale Admissions Officers Discussion</li>
-        </ul>
-    </section>
-<script src="{{ site.baseurl }}/assets/common/js/script.js"></script>
-<script>
-    
-=======
 <section id="recommended">
     <h2><b>Recommended For You:</b></h2>
     <ul id="articlesList"></ul>
@@ -63,7 +46,6 @@ title: Scholar Search
             });
         })
         .catch(error => console.log('error', error));
->>>>>>> f6485c9c1896ba83e937217831fbb68404345c1e
 </script>
 </body>
 </html>

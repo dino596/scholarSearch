@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 ---
 layout: default
 title: Find Match
 ---
 
-=======
->>>>>>> f6485c9c1896ba83e937217831fbb68404345c1e
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,7 +21,6 @@ title: Find Match
             border-radius: 10px;
             overflow: hidden;
         }
-      
         /* Additional custom styles if needed */
         #prevButton,
         #nextButton,
@@ -36,7 +32,6 @@ title: Find Match
             margin: 0 5px;
             cursor: pointer;
         }
-
         #prevButton:hover,
         #nextButton:hover,
         #submitButton:hover {
