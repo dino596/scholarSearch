@@ -46,3 +46,16 @@
     margin-top: 5px;
     color: #666;
 }
+.flex-container {
+    display: flex;
+    align-items: right;
+    justify-content: space-between;
+}
+.button {
+    border-radius: 10px;
+    background-color: light gray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #000;
+}
