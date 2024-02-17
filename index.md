@@ -7,7 +7,7 @@ title: Scholar Search
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/common/css/style.css">
+    <link rel="stylesheet" href="/ScholarSearch/assets/common/css/style.css">
 </head>
 <body>
 <header>
@@ -26,26 +26,6 @@ title: Scholar Search
     <h2><b>Recommended For You:</b></h2>
     <ul id="articlesList"></ul>
 </section>
-
-<!-- JavaScript code for fetching and displaying articles -->
-<script>
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    };
-
-    fetch("http://127.0.0.1:8199/articles/articlesList", requestOptions)
-        .then(response => response.json()) // Assuming the data is in JSON format
-        .then(result => {
-            // Display the fetched data in the articlesList ul
-            const articlesList = document.getElementById("articlesList");
-            result.forEach(article => {
-                const li = document.createElement("li");
-                li.innerHTML = `<b>${article.title}</b> by ${article.author} - <a href="${article.link}">Read More</a>`;
-                articlesList.appendChild(li);
-            });
-        })
-        .catch(error => console.log('error', error));
-</script>
+<script src="/ScholarSearch/assets/index/js/script.js"></script>
 </body>
 </html>
