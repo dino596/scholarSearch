@@ -61,26 +61,26 @@ document.addEventListener("DOMContentLoaded", function() {
         results.forEach(function(college) {
             var resultElement = document.createElement("div");
             resultElement.classList.add("searchResult");
-
+    
             var heading = document.createElement("h3");
             heading.textContent = college.name;
-
+            heading.classList.add("collegeName"); // Add a class for styling
+    
             var addButton = document.createElement("button");
             addButton.classList.add("button")
             addButton.textContent = "Add to List";
             addButton.onclick = function() {
                 addToList(college.name); // Passing college name to addToList function
             };
-
+    
             // Add flex container and style
             var flexContainer = document.createElement("div");
             flexContainer.classList.add("flex-container");
             flexContainer.appendChild(heading);
             flexContainer.appendChild(addButton);
-
+    
             resultElement.appendChild(flexContainer);
             searchResults.appendChild(resultElement);
         });
     }
-
 });
