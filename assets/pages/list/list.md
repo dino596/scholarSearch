@@ -39,9 +39,9 @@ title: List
     <div class="column">
         <h2><b>Searched Colleges</b></h2>
         <ul id="selected">
-            <!-- Selected colleges will be displayed here -->
+            // selelected colleges
             <script>
-                // Retrieve selected colleges from localStorage
+                // Retrieve selected colleges from database
                 var selectedColleges = JSON.parse(localStorage.getItem('selectedSchools')) || [];
                 var selectedList = document.getElementById('selected');
                 // Display selected colleges
